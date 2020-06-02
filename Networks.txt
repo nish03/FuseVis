@@ -1,0 +1,26 @@
+Done:
+1) FunFuseAn: Structural similarity based anatomical and functional brain imaging fusion
+2) DeepFuse: A Deep Unsupervised Approach for Exposure Fusion with Extreme Exposure Image Pairs  
+3) DeepPedestrian: Deep visible and thermal image fusion for enhanced pedestrian visibility 
+4) DenseFuse: A Fusion Approach to Infrared and Visible Images Link 
+5) MFNet: Unsupervised Deep Multi-focus Image Fusion
+6) VIF-Net: An Unsupervised Framework for Infrared and Visible Image Fusion 
+7) A Deep Model for Multi-Focus Image Fusion Based on Gradients and Connected Regions 
+8) FusionGAN: A generative adversarial network for infrared and visible image fusion 
+9) FuseGAN: Learning to Fuse Multi-Focus Image via Conditional Generative Adversarial Network 
+10) DDcGAN:infrared and visible image fusion via dual-discriminator conditional generative adversarial network 
+11) FusionDN: A Unified Densely Connected Network for Image Fusion
+12) Infrared and visible image fusion via detail preserving adversarial learning
+13) Generating a Fusion Image: One's Identity and Another's Shape 
+14) A generative adversarial network with adaptive constraints for multi-focus image fusion
+
+Not end-to-end:
+1) SESF-Fuse: An Unsupervised Deep Model for Multi-Focus Image Fusion 
+2) Infrared and Visible Image Fusion with ResNet and zero-phase component analysis 
+
+Miscellaneous:
+1) Infrared and Visible Image Fusion with a Generative Adversarial Network and a Residual Network
+
+
+Computer Hessian Matrix:
+Not yet done

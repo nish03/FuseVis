@@ -22,5 +22,5 @@ Miscellaneous:
 1) Infrared and Visible Image Fusion with a Generative Adversarial Network and a Residual Network
 
 
-Computer Hessian Matrix:
+Computing Hessian Matrix:
 Not yet done

@@ -21,6 +21,118 @@ Not end-to-end:
 Miscellaneous:
 1) Infrared and Visible Image Fusion with a Generative Adversarial Network and a Residual Network
 
-
-Computing Hessian Matrix:
+Computer Hessian Matrix:
 Not yet done
+
+Notes:
+FunFuseAn:  
+Observations:
+1) The gradient images (Fused wrt MRI and Fused wrt PET) have low intensities for both the high glucose metabolism regions of PET as well as anaotmically relevant region i.e tumor in MRI.  This is also confirmed after looking into the Fuaion RGB image where both these regions are blue in color. This means that although the FunFuseAn learns these regions  quite well, however it is not able to differentiate which region (anatomical/functional) is contributed by which source image. 
+
+2) The network is able to recognize the edge intensities of the source PET image since the gradient intensities are high (around 0.35) for Guide_Fused_PET in these regions compared to (0.1-0.2) for Guide_Fused_MRI and the Fused_RGB image has a greener shade.
+3) The network has high gradients for the non-interesting anatomical regions (magenta shade). This is due to the fact that the pixel intensities of PET image in the same regions are extremely low and the network recognises the high frequency and low intensity MRI features better than the low frequency and low intensity PET features. It could also be because of the way we define the kernels during the convolution operation 
+
+Conclusions: 
+a) In the combination of  high intensity features (non-edge) and low intensity features (non-edge) in a local region, the network learns the high intensities but cannot differentiate its source which could be explained by low gradients for these features (blue in Fused_RGB)
+b) In the combination of  low intensity features (non-edge) and low intensity features (non-edge),  the low intensity features (non-edge) are learned predominantly from MRI source which is revealed by high gradients wrt MRI (magenta in Fused_RGB)
+c) In the combination of high intensity features (edge) and low intensity features (edge), the network learns the high intensities and can also clearly provide the distinction between the MRI edge and a PET edge (magenta for MRI edge and greener shade for PET)
+
+
+DeepFuse
+Observations:
+1)  The fused image was able to reproduce all the features from the source images but clearly has the brightness artifact which means given the network architecture and the SSIM loss function, the network regarded the  luminance property of the images to have far greater importance than the contrast of the source images. This artifact is relevant even after using a steering loss that involves a hyperparameter of lamda = 0.8 assigned to SSIM and  1- lamda assigned to l2 loss. Probably it will be interesting to look into the results after playing with some more values of  lamda. The architecture also has a role to play in it since fusion layer is a simple addition that overestimates the intensities of the resultant feature maps.
+
+2)  As seen in FunFuseAn, DeepFuse also has low gradients for the anatomical as well as functional relevant regions (blue shade in Fused_RGB). This means, DeepFuse is also not quite robust to differentiate between the source of the high intensity features.
+3)  Opposite to FunFuseAn, DeepFuse learns the features from low intensity regions of MRI and PET quite differently. Except few segments of MRI edges which has high gradients, the network recognises almost all regions to be contributed from the PET source (greener shade in Fused_RGB). 
+
+Conclusions:
+a) In the combination of  high intensity features (non-edge) and low intensity features (non-edge) in a local region, the network learns the high intensities but cannot differentiate its source which could be explained by low gradients for these features (blue in Fused_RGB)
+b) In the combination of  low intensity features (non-edge) and low intensity features (non-edge),  the low intensity features (non-edge) are learned predominantly from PET source (greener shade in Fused_RGB) 
+c) In the combination of high intensity features (edge) and low intensity features (edge), the network learns the high intensities but can only partially recognise MRI edge (orange shade in Fused_RGB) while fully recognise PET edge (greener shade in Fused_RGB).
+
+
+
+DeepPedestrian
+Observations:
+
+1) The fused image is not able to preserve the MRI edges considering the almost zero gradients. Additionally, the background is less noisy compared to the DeepFuse and FunFuseAn. Predominantly, the network recognises the PET as its source (Green shade predominant)
+2) There are low gradients wrt MRI and comparatively higher gradients wrt PET for the super low intensity PET features. Interestingly, these super low intensites are transferred to the fused image and the network can recognise it as a PET feature (green in Fused_RGB). However, the high intensity MRI features are partially also categorized as PET features (green in Fused_RGB).
+3) The high intensity PET features (e.g. high glucose metabolism regions) is especially hard for the network to interpret. The edge pixel of such regions has high gradients wrt MRI and network label them as MRI feature (orange in Fused_RGB) while the central pixels in these regions have low gradients wrt PET (cyan in Fused_RGB)
+
+Conclusions:
+a) In the combination of the high intensity features (non-edge) of PET and low intensity features (non-edge) of MRI, the network learns the high intensities. However, either the network categories the intensities with MRI as the source (orange) or PET (cyan)
+b) In the combination of the high intensity features (non-edge) of MRI and low intensity features (non-edge) of PET , the network predominantly learns the low intensities of PET and categorises PET as its source (green)
+
+c) In the combination of  low intensity features (non-edge) of MRI and low intensity features (non-edge) of PET,  the low intensity features of PET are learned predominantly (green) but the edges of these regions are categorised as a MRI source (orange).
+d) In the combination of high intensity features (edge) and low intensity features (edge), the network learns the high intensities of only PET source since the MRI edge information is missing in the fused image
+
+
+​
+FusionGAN
+Observations:
+1) The network recognises the high intensity anatomically important information from the MRI as coming both from MRI and PET sources. This is explainable by the fact that these regions have yellow in Fused_RGB. Although, there are some blue shades also mixed, but the network is somewhat capable in recognising these high intensity regions of MRI compared to FunFuseAn which cannot recognise at all. 
+2) The high intensities of PET has low gradients both wrt MRI and PET (Blue in Fused_RGB). This conveys that network donot recognise the actual source of these high intensities.
+
+3) The edges of both MRI and PET source images are well preseved. The MRI edges are yellow while PET edges are green. 
+​
+Conclusions:
+a) In the combination of the high intensity features (non-edge) of PET and low intensity features (non-edge) of MRI, the network learns the high intensities. However, the network donot know the source (blue)
+b) In the combination of the high intensity features (non-edge) of MRI and low intensity features (non-edge) of PET , the network predominantly learns the high intensities of MRI and categorises vaguely as its source (yellow)
+
+c) In the combination of  low intensity features (non-edge) of MRI and low intensity features (non-edge) of PET,  the low intensity features of PET are learned predominantly (greener shade).
+d) In the combination of high intensity features (edge) and low intensity features (edge), the network learns the high intensities of both PET and MRI edges and clearly identify the PET edge and vaguely identifies the MRI edge.
+
+
+
+FusionDN
+Observations:
+1) The network recognises the high intensity anatomically important information from the MRI as coming from MRI (magenta and orange) while non-interesting anatomical regions are categorised into PET source
+2) The high intensities of PET has central pixels as blue while corners are orange
+
+3) The edges of both MRI and PET source images are well preseved. The MRI edges are orange while PET edges are green. 
+
+Conclusions:
+a) In the combination of the high intensity features (non-edge) of PET and low intensity features (non-edge) of MRI, the network learns the high intensities. However, the network donot know the source (blue) of central pixels while categorises MRI as the source for other pixels.
+b) In the combination of the high intensity features (non-edge) of MRI and low intensity features (non-edge) of PET , the network predominantly learns the high intensities of MRI and categorises it as its source (magenta and orange)
+
+c) In the combination of  low intensity features (non-edge) of MRI and low intensity features (non-edge) of PET,  the low intensity features of PET are learned predominantly  as the source (greener shade).
+d) In the combination of high intensity features (edge) and low intensity features (edge), the network learns the high intensities of both PET and MRI edges and clearly identify the PET edge (green) as well as some parts of the MRI edge (orange)
+
+
+
+MaskNet
+
+Observations
+
+a) There are easily recognizable brightness artifacts as well as the feature related to PET edge is missing. 
+b) The high intensities of PET again resemble blue color which means network cannot recognize the source while the high intensities of MRI have a mixture of magenta and blue shades. 
+c) The MRI edge is yellow which conveys the network categories it both as a MRI as well as a PET source. Some edge regions are red conveying MRI as the source.
+d) Predominantly it is hard to conclude with these results althought the main colors are blue, yellow and some magenta. The high intensity PET region is blue which is common trend with other networks.
+
+
+ 
+VIFNet
+Observations:
+1) The fused image is missing the MRI edge information. Additionally, the super low intensity of PET is also added into the fused image.
+1) The network is not able to recognise the high intensity anatomically important information from the MRI  (green in Fused_RGB) and therefore these regions are categorised as the PET source
+2) The high intensities of PET has central pixels as blue while corners are orange which conveys the network donot know which source contributed to it. The corners are wrongly recognised as MRI source.
+
+3) The edges of only PET source image are well preseved as labeled in green color. 
+
+Conclusions:
+a) In the combination of the high intensity features (non-edge) of PET and low intensity features (non-edge) of MRI, the network learns the high intensities. However, the network donot know the source (blue) of central pixels while categorises MRI as the source for other pixels. 
+b) In the combination of the high intensity features (non-edge) of MRI and low intensity features (non-edge) of PET , the network predominantly learns the low intensities of PET  and categorises it as its source (greener shade)
+
+c) In the combination of  low intensity features (non-edge) of MRI and low intensity features (non-edge) of PET,  the low intensity features of PET are learned predominantly  as the source (greener shade).
+d) In the combination of high intensity features (edge) and low intensity features (edge), the network learns the high intensities of only PET edge (green).
+
+
+
+Summary:
+
+I think all the networks works very differently but most strikingly they all atleast cannot categorise the high intensity features of PET as its source.  Therefore, in my opinion It would be very interesting to look into the second order derivatives (Hessian) as another metric  to better understand the complexities of these network properties. I would also work for the generation of  simulated images, real medical images as well as perturbation based simulated and real images  with the following properties.
+a) Regions with high intensity features in both source images
+
+b) Regions with high intensity features in source image A while low intensity in source image B
+c) Regions with high intensity features in source image B while low intensity in source image A
+d) Regions with low intensity features in both source images

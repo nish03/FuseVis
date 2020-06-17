@@ -15,7 +15,7 @@ Done:
 14) A generative adversarial network with adaptive constraints for multi-focus image fusion
 
 Hints:
-Save the memory requirement by not saving the images.
+Save the memory and requirement by not saving the images and time requirement by not computing the gradients in a loop anymore.
 
 Not end-to-end:
 1) SESF-Fuse: An Unsupervised Deep Model for Multi-Focus Image Fusion 

@@ -35,7 +35,7 @@ Coming soon
 ![Logo2](/docs/Fused.png)
 
 ## Guidance images
-![Logo3](/docs/Guidance_images.png)
+![Logo3](/docs/Guidance images.png)
 
 ## Guidance RGB images
 ![Logo4](/docs/Guidance_RGB_images.png)

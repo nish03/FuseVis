@@ -28,25 +28,23 @@ Coming soon
 ## How to Cite
 Coming soon
 
-## Results
-
 ## Evaluated Neural Networks
 ![Logo1](/docs/Networks.png)
 
 ## Fused images
-![Logo](/docs/Fused.png)
+![Logo2](/docs/Fused.png)
 
 ## Guidance images
-![Logo1](/docs/Guidance_images.png)
+![Logo3](/docs/Guidance_images.png)
 
 ## Guidance RGB images
-![Logo1](/docs/Guidance_RGB_images.png)
+![Logo4](/docs/Guidance_RGB_images.png)
 
 ## Jacobian images
-![Logo1](/docs/Jacobian_images.png)
+![Logo5](/docs/Jacobian_images.png)
 
 ## Scatterplots
-![Logo1](/docs/Scatterplots.png)
+![Logo6](/docs/Scatterplots.png)
 
 
 

@@ -34,6 +34,9 @@ Coming soon
 ## Fused images
 ![Logo2](/docs/Fused.png)
 
+## Gamma Correction
+![Logo2](/docs/Gamma_correction.png)
+
 ## Guidance images
 ![Logo3](/docs/Guidance_images.png)
 

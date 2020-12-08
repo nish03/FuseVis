@@ -32,7 +32,7 @@ Coming soon
 
 ![Logo](/docs/Fused.png)
 
-![Logo1](/docs/Guidance_images.png)
+![Logo1](/docs/Guidance images.png)
 
 ![Logo1](/docs/Guidance_RGB_images.png)
 

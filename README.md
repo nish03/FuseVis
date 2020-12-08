@@ -30,9 +30,11 @@ Coming soon
 
 ## Results
 
+![Logo1](/docs/Networks.png)
+
 ![Logo](/docs/Fused.png)
 
-![Logo1](/docs/Guidance images.png)
+![Logo1](/docs/Guidance_images.png)
 
 ![Logo1](/docs/Guidance_RGB_images.png)
 
@@ -40,6 +42,5 @@ Coming soon
 
 ![Logo1](/docs/Scatterplots.png)
 
-![Logo1](/docs/Networks.png)
 
 

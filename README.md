@@ -30,18 +30,22 @@ Coming soon
 
 ## Results
 
-                               ## Fused images
+## Evaluated Neural Networks
+![Logo1](/docs/Networks.png)
 
-      ![Logo1](/docs/Networks.png)
+## Fused images
+![Logo](/docs/Fused.png)
 
-      ![Logo](/docs/Fused.png)
-
+## Guidance images
 ![Logo1](/docs/Guidance_images.png)
 
+## Guidance RGB images
 ![Logo1](/docs/Guidance_RGB_images.png)
 
+## Jacobian images
 ![Logo1](/docs/Jacobian_images.png)
 
+## Scatterplots
 ![Logo1](/docs/Scatterplots.png)
 
 

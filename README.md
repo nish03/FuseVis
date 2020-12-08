@@ -30,9 +30,11 @@ Coming soon
 
 ## Results
 
-![Logo1](/docs/Networks.png)
+                               ## Fused images
 
-![Logo](/docs/Fused.png)
+      ![Logo1](/docs/Networks.png)
+
+      ![Logo](/docs/Fused.png)
 
 ![Logo1](/docs/Guidance_images.png)
 

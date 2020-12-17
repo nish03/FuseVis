@@ -26,7 +26,7 @@ The tool performs the following key tasks:
 Coming soon
 
 ## How to Cite
-Coming soon
+Kumar, N.; Gumhold, S. FuseVis: Interpreting Neural Networks for Image Fusion Using Per-Pixel Saliency Visualization. Computers 2020, 9, 98.
 
 ## Evaluated Neural Networks
 ![Logo1](/docs/Networks.png)

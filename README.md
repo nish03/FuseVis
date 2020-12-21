@@ -30,24 +30,3 @@ Kumar, N.; Gumhold, S. FuseVis: Interpreting Neural Networks for Image Fusion Us
 
 ## Evaluated Neural Networks
 ![Logo1](/docs/Networks.png)
-
-## Fused images
-![Logo2](/docs/Fused.png)
-
-## Gamma Correction
-![Logo2](/docs/Gamma_correction.png)
-
-## Guidance images
-![Logo3](/docs/Guidance_images.png)
-
-## Guidance RGB images
-![Logo4](/docs/Guidance_RGB_images.png)
-
-## Jacobian images
-![Logo5](/docs/Jacobian_images.png)
-
-## Scatterplots
-![Logo6](/docs/Scatterplots.png)
-
-
-

@@ -1,5 +1,5 @@
 # FuseVis: Interpreting neural networks for image fusion using per-pixel saliency visualization
-The project presents a visualization tool to interpret neural networks for image fusion. The tool, named as **FuseVis**, can be used by end-user to compute per-pixel saliency maps that examine the influence of the input image pixels on each pixel of the fused image. The tool can also be adapted to interpret any deep neural network that involves image processing. The paper is soon to be published in a high impact journal.
+The project presents a visualization tool to interpret neural networks for image fusion. The tool, named as **FuseVis**, can be used by end-user to compute per-pixel saliency maps that examine the influence of the input image pixels on each pixel of the fused image. The tool can also be adapted to interpret any deep neural network that involves image processing. 
 
 ![GitHub Logo](/docs/Tool.png)
 

@@ -36,7 +36,7 @@ The training of each of the evaluated fusion network was done with 500 MRI-PET i
         * You need to remove the complete code snippet under the 'if' statement of the definition of the 'load_model()' function. For example: if you didn't trained DeepPedestrian network, you need to remove the code under the following 'if' statement:<br/><br/>
         ![Code snippet](/docs/Sample_Code_snippet.png)<br/>
         * Make sure you atleast train the FunFuseAn network and have its checkpoint since the implementation of FuseVis has been performed in a way that the fused tensor from the FunFuseAn network is mandatory to define the local window for obtaining zoomed images. <br/>
-        ***** You can remove the model which was not trained from the following code snippet:<br/><br/>
+        * You can remove the model which was not trained from the following code snippet:<br/><br/>
          ![Code snippet1](/docs/Model_definition.png)<br/><br/>
 
 **Note:** You can also define your own fusion based neural network based on your requirements and use it with FuseVis tool to interpret the influence of the input images on the fused image.  

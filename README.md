@@ -30,16 +30,19 @@ The training of each of the evaluated fusion network was done with 500 MRI-PET i
 Step 1: The first step to use FuseVis tool is to train your own neural network with your own dataset where you feed image pairs to the fusion network and obtain a fused image as a prediction from the network. In case you are interested to use one of the evaluated fusion networks, for example: DeepFuse, then you need to run the pytorch based notebook implementation DeepFuse.ipynb provided in this repository to perform the training.
 
 Step 2: Once the network is trained, you can now run FuseVis.ipynb to obtain the user interface. Some key points to note:
-    a) Make sure you run the jupyter notebook offline since tkinter fails to work in online platforms such as Google Colab.
-    b) If you just trained one fusion network, you need to make some modifications to FuseVis.ipynb. They are as follows:
+a) Make sure you run the jupyter notebook offline since tkinter fails to work in online platforms such as Google Colab.
+b) If you just trained one fusion network, you need to make some modifications to FuseVis.ipynb. They are as follows:
         * You need to remove the code snippet related to the architecture of the model which was not trained and hence donot have a checkpoint path. Weighted Averaging method is an exception since it is a training free method.
         * You need to remove the complete code snippet under the 'if' statement of the definition of the 'load_model()' function. For example: if you didn't trained DeepPedestrian network, you need to remove the code under the following 'if' statement:
+        
         ![Code snippet](/docs/Sample_Code_snippet.png)
+        
         * Make sure you atleast train the FunFuseAn network and have its checkpoint since the implementation of FuseVis has been performed in a way that the fused tensor from the FunFuseAn network is mandatory to define the local window for obtaining zoomed images. 
-        * Finally, remove the model which was not trained from the following code snippet:
+        
+        * You can remove the model which was not trained from the following code snippet:
          ![Code snippet1](/docs/Model_definition.png)
 
-Note: You can also define your own fusion based neural network based on your requirements and use it with FuseVis tool to interpret the influence of input images on the fused image.  
+Note: You can also define your own fusion based neural network based on your requirements and use it with FuseVis tool to interpret the influence of the input images on the fused image.  
 
 ## How to Cite
 Kumar, N.; Gumhold, S. FuseVis: Interpreting Neural Networks for Image Fusion Using Per-Pixel Saliency Visualization. Computers 2020, 9, 98.

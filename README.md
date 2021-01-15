@@ -34,11 +34,8 @@ a) Make sure you run the jupyter notebook offline since tkinter fails to work in
 b) If you just trained one fusion network, you need to make some modifications to FuseVis.ipynb. They are as follows:
         * You need to remove the code snippet related to the architecture of the model which was not trained and hence donot have a checkpoint path. Weighted Averaging method is an exception since it is a training free method.
         * You need to remove the complete code snippet under the 'if' statement of the definition of the 'load_model()' function. For example: if you didn't trained DeepPedestrian network, you need to remove the code under the following 'if' statement:
-        
         ![Code snippet](/docs/Sample_Code_snippet.png)
-        
         * Make sure you atleast train the FunFuseAn network and have its checkpoint since the implementation of FuseVis has been performed in a way that the fused tensor from the FunFuseAn network is mandatory to define the local window for obtaining zoomed images. 
-        
         * You can remove the model which was not trained from the following code snippet:
          ![Code snippet1](/docs/Model_definition.png)
 
